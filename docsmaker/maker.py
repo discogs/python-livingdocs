@@ -120,7 +120,8 @@ class HugoDoc(object):
             else:
                 lines.append('%s = "%s"' % (key, val))
         # auto date
-        lines.append('date = "%s"' % (datetime.now().isoformat()))
+        self.date = str(datetime.now().isoformat())
+        lines.append('date = "%s"' % self.date)
         lines.insert(0, '+++')
         lines.append('+++')
         return '\n'.join(lines)
