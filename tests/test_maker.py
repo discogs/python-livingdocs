@@ -26,3 +26,14 @@ class TestHugoDoc(unittest.TestCase):
         doc.meta['foo'] = 'bar'
         header_str = '+++\ntitle = "PageTwo"\nfoo = "bar"\n'
         self.assertIn(header_str, doc.header())
+
+    def test_writeline(self):
+        """
+        Check that writeline adds
+        content to buffer.
+        """
+        doc = HugoDoc(title="PageThree")
+        line = u'All original junglist massive'
+        doc.writeline(line)
+        self.assertIn(line, doc.getcontents())
+        
