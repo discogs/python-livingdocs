@@ -1,7 +1,12 @@
 from PIL import Image
 from io import StringIO
 from datetime import datetime
+from slugify import UniqueSlugify
 import os
+
+slugger = UniqueSlugify()
+
+from hugo_doc import HugoDoc
 
 
 class DocsMaker(object):
@@ -80,55 +85,3 @@ class DocsMaker(object):
         # write the step information to file
         self.doc.writeline(u'%s %s | %s | %0.2f | %s' % (step.keyword, step.name, step.status, step.duration, image_code))
 
-
-class HugoDoc(object):
-    """
-    A utility for creating hugo/markdown docs.
-    How it should work:
-        >>> doc = HugoDoc(title='Page One')
-        >>> print doc.header()
-        +++
-        title = "Page One"
-        tags = []
-        date = "2016-08-14T09:45:27.006975"
-        +++
-        >>> doc.writeline(u'A description goes here')
-        >>> print doc.getcontents()
-        +++
-        title = "Page One"
-        +++
-        <BLANKLINE>
-        A description goes here
-        <BLANKLINE>
-        >>> doc.meta['number'] = 5
-        >>> print doc.header()
-        +++
-        title = "Page One"
-        +++
-    """
-    def __init__(self, title='', tags=[]):
-        self.title = title
-        self.meta = {}
-        self.buff = StringIO()
-        self.meta['tags'] = tags
-
-    def header(self):
-        lines = ['title = "%s"' % self.title]
-        for key, val in self.meta.items():
-            if isinstance(val, list):
-                lines.append('%s = %s' % (key, val))
-            else:
-                lines.append('%s = "%s"' % (key, val))
-        # auto date
-        self.date = str(datetime.now().isoformat())
-        lines.append('date = "%s"' % self.date)
-        lines.insert(0, '+++')
-        lines.append('+++')
-        return '\n'.join(lines)
-
-    def writeline(self, s=u''):
-        self.buff.writelines(s)
-        self.buff.writelines(u'\n')
-
-    def getcontents(self):
-        return self.header() + '\n\n' + self.buff.getvalue()
