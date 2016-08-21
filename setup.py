@@ -60,6 +60,9 @@ setup(
     ],
     install_requires=[
         'click',
+        'awesome-slugify',
+        'Pillow',
+        'mock'
     ],
     extras_require={
         # eg:
