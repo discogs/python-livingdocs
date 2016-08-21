@@ -6,7 +6,7 @@ import os
 
 slugger = UniqueSlugify()
 
-from hugo_doc import HugoDoc
+from .hugo_doc import HugoDoc
 
 
 class DocsMaker(object):
