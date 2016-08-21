@@ -1,4 +1,4 @@
-from docsmaker import HugoDoc
+from livingdocs.hugo_doc import HugoDoc
 import unittest
 
 class TestHugoDoc(unittest.TestCase):

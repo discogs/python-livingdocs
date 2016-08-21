@@ -1,0 +1,16 @@
+[paths]
+source =
+   src/livingdocs
+   */site-packages/livingdocs
+
+[run]
+branch = true
+source =
+    livingdocs
+    tests
+parallel = true
+
+[report]
+show_missing = true
+precision = 2
+omit = *migrations*

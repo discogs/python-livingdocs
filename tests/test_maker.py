@@ -1,5 +1,5 @@
 from mock import Mock
-from docsmaker import DocsMaker
+from livingdocs.maker import DocsMaker
 import unittest
 import shutil
 import os

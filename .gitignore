@@ -1,23 +1,26 @@
 *.py[cod]
-env
-C extensions
+
+# C extensions
 *.so
-*.swp
+
 # Packages
 *.egg
 *.egg-info
 dist
 build
 eggs
+.eggs
 parts
 bin
 var
 sdist
+wheelhouse
 develop-eggs
 .installed.cfg
 lib
 lib64
-MANIFEST
+venv*/
+pyvenv*/
 
 # Installer logs
 pip-log.txt
@@ -25,15 +28,37 @@ pip-log.txt
 # Unit test / coverage reports
 .coverage
 .tox
+.coverage.*
 nosetests.xml
-tmp
+coverage.xml
+htmlcov
 
 # Translations
 *.mo
 
-# Code editor
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+.idea
+*.iml
+*.komodoproject
+
+# Complexity
+output/*.html
+output/*/index.html
+
+# Sphinx
+docs/_build
+
+.DS_Store
 *~
-*.swp
-venv/*
+.*.sw[po]
+.build
+.ve
+.env
 .cache
-.cache/*
+.pytest
+.bootstrap
+.appveyor.token
+*.bak
