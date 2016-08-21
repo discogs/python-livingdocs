@@ -1,6 +1,6 @@
 Overview  
 ========
-[![Build Status](https://travis-ci.org/discogs/python-livingdocs.svg?branch=master)](https://travis-ci.org/discogs/python-livingdocs) [![Coverage Status](https://coveralls.io/repos/github/discogs/python-livingdocs/badge.svg?branch=master)](https://coveralls.io/github/discogs/python-livingdocs?branch=master) [![codecov](https://codecov.io/gh/discogs/python-livingdocs/branch/master/graph/badge.svg)](https://codecov.io/gh/discogs/python-livingdocs) [![PyPI](https://img.shields.io/pypi/v/nine.svg?maxAge=2592000)](https://pypi.python.org/pypi/livingdocs) [![PyPI](https://img.shields.io/pypi/wheel/Django.svg?maxAge=2592000)](https://pypi.python.org/pypi/livingdocs)
+[![Build Status](https://travis-ci.org/discogs/python-livingdocs.svg?branch=master)](https://travis-ci.org/discogs/python-livingdocs) [![Coverage Status](https://coveralls.io/repos/github/discogs/python-livingdocs/badge.svg?branch=master)](https://coveralls.io/github/discogs/python-livingdocs?branch=master) [![codecov](https://codecov.io/gh/discogs/python-livingdocs/branch/master/graph/badge.svg)](https://codecov.io/gh/discogs/python-livingdocs) [![PyPI](https://img.shields.io/pypi/v/livingdocs.svg?maxAge=2592000)](https://pypi.python.org/pypi/livingdocs) [![PyPI](https://img.shields.io/pypi/wheel/livingdocs.svg?maxAge=2592000)](https://pypi.python.org/pypi/livingdocs)
 
 Using a Python BDD test runner like [behave], create living documentation from your BDD feature files. This library will create documents that contain up-to-date information about your BDD specs.
 
