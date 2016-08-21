@@ -1,19 +1,19 @@
+from .hugo_doc import HugoDoc
+
 from PIL import Image
-from io import StringIO
-from datetime import datetime
 from slugify import UniqueSlugify
 import os
 
 slugger = UniqueSlugify()
 
-from .hugo_doc import HugoDoc
-
 
 class DocsMaker(object):
     """A documentation site maker."""
+
     def __init__(self, section):
         self.section = section
-        self.output_dir = '%s/livingdocs/content/%s' % (os.getcwd(), self.section)
+        self.output_dir = '%s/livingdocs/content/%s' % (
+            os.getcwd(), self.section)
 
     def fix_filename(self, s):
         parts = s.split('/')
@@ -38,7 +38,8 @@ class DocsMaker(object):
     def end_feature(self, context, feature):
         # calculate the number of scenarios
         self.doc.meta['num_scenarios'] = len(feature.scenarios)
-        self.doc.meta['num_scenarios_passing'] = len([s for s in feature.scenarios if s.status == 'passed'])
+        self.doc.meta['num_scenarios_passing'] = len(
+            [s for s in feature.scenarios if s.status == 'passed'])
 
         # write an index.md file for all the info we've accumulated about
         # this feature
@@ -69,19 +70,22 @@ class DocsMaker(object):
 
         # get the screenshot
         try:
-            context.browser.driver.get_screenshot_as_file('%s/%s/%s' % (self.output_dir, self.doc.path, shot_name))
+            context.browser.driver.get_screenshot_as_file(
+                '%s/%s/%s' % (self.output_dir, self.doc.path, shot_name))
         except:
             shot_name = None
             image_code = 'error capturing'
 
         # make a thumbnail of it
         if shot_name:
-            im = Image.open('%s/%s/%s' % (self.output_dir, self.doc.path, shot_name))
+            im = Image.open('%s/%s/%s' %
+                            (self.output_dir, self.doc.path, shot_name))
             im.thumbnail((100, 100))
             im.save('%s/%s/%s' % (self.output_dir, self.doc.path, thumb_name))
 
-            image_code = '<a href="%s"><img class="img-thumbnail" src="%s" width="100" /></a>' % (shot_name, thumb_name)
+            image_code = '<a href="%s"><img class="img-thumbnail" src="%s" width="100" /></a>' % (
+                shot_name, thumb_name)
 
         # write the step information to file
-        self.doc.writeline(u'%s %s | %s | %0.2f | %s' % (step.keyword, step.name, step.status, step.duration, image_code))
-
+        self.doc.writeline(u'%s %s | %s | %0.2f | %s' % (
+            step.keyword, step.name, step.status, step.duration, image_code))

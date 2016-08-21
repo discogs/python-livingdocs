@@ -1,7 +1,5 @@
-from PIL import Image
 from io import StringIO
 from datetime import datetime
-import os
 
 
 class HugoDoc(object):
