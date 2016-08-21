@@ -5,7 +5,7 @@ class TestHugoDoc(unittest.TestCase):
 
     def test_header(self):
         """
-        Check that the title, tags and 
+        Check that the title, tags and
         date are correct.
         """
         doc = HugoDoc(title="PageOne")
@@ -24,7 +24,7 @@ class TestHugoDoc(unittest.TestCase):
         """
         doc = HugoDoc(title="PageTwo")
         doc.meta['foo'] = 'bar'
-        header_str = '+++\ntitle = "PageTwo"\nfoo = "bar"\n'
+        header_str = 'foo = "bar"\n'
         self.assertIn(header_str, doc.header())
 
     def test_writeline(self):
@@ -36,4 +36,4 @@ class TestHugoDoc(unittest.TestCase):
         line = u'All original junglist massive'
         doc.writeline(line)
         self.assertIn(line, doc.getcontents())
-        
+
