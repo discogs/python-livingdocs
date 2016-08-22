@@ -1,6 +1,5 @@
 from .hugo_doc import HugoDoc
 
-from PIL import Image
 from slugify import UniqueSlugify
 import os
 
@@ -70,6 +69,7 @@ class DocsMaker(object):
 
         # get the screenshot
         try:
+            from PIL import Image
             context.browser.driver.get_screenshot_as_file(
                 '%s/%s/%s' % (self.output_dir, self.doc.path, shot_name))
         except:
