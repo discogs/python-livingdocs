@@ -24,7 +24,7 @@ def read(*names, **kwargs):
 
 setup(
     name='livingdocs',
-    version='0.1.2',
+    version='0.1.3',
     license='BSD',
     description='Create living documentation from BDD specs',
     long_description='%s\n%s' % (
