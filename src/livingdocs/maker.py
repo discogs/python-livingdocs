@@ -20,7 +20,6 @@ class DocsMaker(object):
             if '.' in p:
                 return 'feature/%s' % p.split('.')[0]
 
-
     def start_feature(self, context, feature):
         # beginning a feature. we should begine a file for this
         tags = [t.encode('ascii') for t in feature.tags]

@@ -5,7 +5,7 @@ import shutil
 import os
 
 class TestDocsMaker(unittest.TestCase):
-    
+
     @classmethod
     def setUpClass(cls):
         path = 'tmp'
@@ -34,6 +34,9 @@ class TestDocsMaker(unittest.TestCase):
         filename = 'foo/bar.md'
         result = self.maker.fix_filename(filename)
         self.assertEquals(result, 'feature/bar')
+        filename = 'omar/features/auth.feature'
+        result = self.maker.fix_filename(filename)
+        self.assertEquals(result, 'feature/auth')
 
     def test_start_feature(self):
         feature = Mock()
