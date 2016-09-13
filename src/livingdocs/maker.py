@@ -16,9 +16,10 @@ class DocsMaker(object):
 
     def fix_filename(self, s):
         parts = s.split('/')
-        filename = parts[1]
-        keyname = filename.split('.')[0]
-        return 'feature/%s' % keyname
+        for p in parts:
+            if '.' in p:
+                return 'feature/%s' % p.split('.')[0]
+
 
     def start_feature(self, context, feature):
         # beginning a feature. we should begine a file for this
