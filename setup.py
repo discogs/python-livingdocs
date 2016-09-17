@@ -35,7 +35,7 @@ setup(
     author='Discogs',
     author_email='acraze@discogsinc.com',
     maintainer_email='acraze@discogsinc.com',
-    maintainer = 'Andy Craze',
+    maintainer='Andy Craze',
     url='https://github.com/discogs/python-livingdocs',
     packages=find_packages('src'),
     package_dir={'': 'src'},
