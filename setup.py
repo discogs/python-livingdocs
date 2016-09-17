@@ -33,9 +33,9 @@ setup(
         re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))
     ),
     author='Discogs',
-    author_email='',
-    maintainer_email='accraze@gmail.com',
-    maintainer='Andy Craze',
+    author_email='acraze@discogsinc.com',
+    maintainer_email='acraze@discogsinc.com',
+    maintainer = 'Andy Craze',
     url='https://github.com/discogs/python-livingdocs',
     packages=find_packages('src'),
     package_dir={'': 'src'},
