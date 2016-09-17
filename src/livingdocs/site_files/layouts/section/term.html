@@ -1,0 +1,16 @@
+{{ partial "header.html" . }}
+
+<div class="row">
+    <div class="col-sm-9">
+
+        {{ range .Data.Pages }}
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        {{ .Summary }}
+        {{ end }}
+
+    </div>
+    <div class="col-sm-3">
+    </div>
+</div>
+
+{{ partial "footer.html" . }}

@@ -1,0 +1,22 @@
+{{ partial "header.html" . }}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Sections</strong>
+    </div>
+    <div class="panel-body list-group">
+        {{ range .Site.Menus.main }}
+        <div class="list-group-item">
+            <h4 class="list-group-item-heading">
+                <a href="{{ .URL }}">
+                    <span class="glyphicon glyphicon-folder-open" style="margin-right:0.5em;"></span>
+                    {{ .Name | pluralize }}
+                </a>
+            </h4>
+            <p class="list-group-item-text"></p>
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+{{ partial "footer.html" . }}

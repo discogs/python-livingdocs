@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{{ $baseUrl := .Site.BaseURL }}
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="{{ $baseUrl }}/css/bootstrap.min.css">
+        <title>{{ .Title }}</title>
+        <style type="text/css">
+            div.container.main { 
+                border-left:1px solid #ddd; 
+                border-right:1px solid #ddd; 
+                border-bottom:1px solid #ddd; 
+                border-radius:4px;
+                padding-bottom:10px;
+                background-color:#fff;
+            }
+            body {
+                background-color:#eee;
+            }
+            .navbar {
+                margin-bottom:0px;
+            }
+            code {
+                color:inherit;
+            }
+        </style>
+    </head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{ $baseUrl }}"/>
+                    <span class="glyphicon glyphicon-info-sign"></span>
+                    {{ .Site.Title }}
+                </a>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    {{ $currentNode := . }}
+                    {{ range .Site.Menus.main }}
+                    <li{{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} class="active"{{ end }}><a href="{{ .URL }}">{{ .Name | pluralize }}</a></li>
+                    {{ end }}
+                </ul>
+                <ul class="nav navbar-nav pull-right">
+                    <li><a href="https://www.pivotaltracker.com/n/projects/854739">Pivotal</a></li>
+                    <li><a href="https://github.com/discogs/metaogs">Github</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container main">
+
+        <h1 class="page-header">{{ .Title }}</h1>

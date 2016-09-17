@@ -15,9 +15,17 @@ Why does this file exist, and why not put this in __main__?
   Also see (1) from http://click.pocoo.org/5/setuptools/#setuptools-integration
 """
 import click
+from static_site import StaticSite
 
 
 @click.command()
-@click.argument('names', nargs=-1)
-def main(names):
-    click.echo(repr(names))
+@click.option('--title', prompt='Your site\'s title',
+              help='The name of your site.')
+@click.option('--description', prompt='Your site\'s description',
+              help='A short description of your site.')
+@click.option('--baseurl', default='http://localhost:1313',
+              help='The base url of your site.')
+def cli(title, description, baseurl):
+    click.echo('Building Living Docs Site')
+    site = StaticSite(title=title, description=description, baseurl=baseurl)
+    site.create()

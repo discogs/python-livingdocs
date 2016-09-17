@@ -1,0 +1,26 @@
+{{ partial "header.html" . }}
+
+<div class="row">
+    <div class="col-sm-9">
+        {{ .Content }}
+
+        {{ $tagged := .Site.Taxonomies.tags.Get .Title }}
+        {{ if $tagged }}<hr/>{{ end }}
+
+        {{ range $tagged }}
+        <h3><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></h3>
+        {{ .Page.Summary }}
+        {{ end }}
+
+    </div>
+    <div class="col-sm-3">
+        {{ .TableOfContents }}
+        <ul>
+            {{ range .Params.tags }}
+            <li><a href="/term/{{ . |urlize }}">{{ . }}</a></li>
+            {{ end }}
+        </ul>
+    </div>
+</div>
+
+{{ partial "footer.html" . }}
