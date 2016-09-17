@@ -35,7 +35,7 @@ setup(
     author='Discogs',
     maintainer_email='accraze@gmail.com',
     maintainer = 'Andy Craze'
-    url='https://github.com/accraze/python-livingdocs',
+    url='https://github.com/discogs/python-livingdocs',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
