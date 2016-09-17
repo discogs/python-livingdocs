@@ -32,8 +32,9 @@ setup(
                    re.M | re.S).sub('', read('README.rst')),
         re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))
     ),
-    author='Andy Craze',
-    author_email='accraze@gmail.com',
+    author='Discogs',
+    maintainer_email='accraze@gmail.com',
+    maintainer = 'Andy Craze'
     url='https://github.com/accraze/python-livingdocs',
     packages=find_packages('src'),
     package_dir={'': 'src'},
@@ -58,7 +59,7 @@ setup(
         'Topic :: Utilities',
     ],
     keywords=[
-        # eg: 'keyword1', 'keyword2', 'keyword3',
+        'bdd', 'documentation', 'tools'
     ],
     install_requires=[
         'click',
