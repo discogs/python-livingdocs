@@ -2,7 +2,7 @@ Overview
 ========
 [![Build Status](https://travis-ci.org/discogs/python-livingdocs.svg?branch=master)](https://travis-ci.org/discogs/python-livingdocs) [![Coverage Status](https://coveralls.io/repos/github/discogs/python-livingdocs/badge.svg?branch=master)](https://coveralls.io/github/discogs/python-livingdocs?branch=master) [![codecov](https://codecov.io/gh/discogs/python-livingdocs/branch/master/graph/badge.svg)](https://codecov.io/gh/discogs/python-livingdocs) [![PyPI](https://img.shields.io/pypi/v/livingdocs.svg?maxAge=2592000)](https://pypi.python.org/pypi/livingdocs) [![PyPI](https://img.shields.io/pypi/wheel/livingdocs.svg?maxAge=2592000)](https://pypi.python.org/pypi/livingdocs)
 
-Using a Python BDD test runner like [behave], create living documentation from your BDD feature files. This library will create documents that contain up-to-date information about your BDD specs.
+Using a Python BDD test runner like [behave], create living documentation from your BDD feature files. This library will create documents that contain up-to-date information about your BDD specs and helps generate a static site for your living documentation.
 
 Current supported document types:
 
@@ -13,8 +13,18 @@ Installation
 
     pip install livingdocs
 
+You should also install the Hugo binaries in order to generate your static site: https://gohugo.io/overview/installing/
+
 Quick Start
 -----------
+Use the CLI command `livingdocs` to configure your Hugo site:
+```
+$ livingdocs
+  Your site's title: <enter title>
+  Your site's description: <enter description>
+  ....
+```
+This will create a `livingdocs` folder in your root directory which will have a Hugo skeleton to create a static site.
 
 Using a test runner like [behave], you can generate documents for each feature, scenario and step. In **environment.py**, you can use the DocsMaker to capture this information:
 
@@ -45,6 +55,9 @@ Using a test runner like [behave], you can generate documents for each feature, 
         take a snapshot of this step.
         """
         context.docs.end_step(context, step)
+        
+
+
 
 Development
 -----------
