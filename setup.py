@@ -24,7 +24,7 @@ def read(*names, **kwargs):
 
 setup(
     name='livingdocs',
-    version='0.2.0',
+    version='0.1.3',
     license='BSD',
     description='Create living documentation from BDD specs',
     long_description='%s\n%s' % (
@@ -34,7 +34,7 @@ setup(
     ),
     author='Discogs',
     maintainer_email='accraze@gmail.com',
-    maintainer = 'Andy Craze'
+    maintainer = 'Andy Craze',
     url='https://github.com/discogs/python-livingdocs',
     packages=find_packages('src'),
     package_dir={'': 'src'},
