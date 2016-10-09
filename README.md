@@ -55,8 +55,13 @@ Using a test runner like [behave], you can generate documents for each feature, 
         take a snapshot of this step.
         """
         context.docs.end_step(context, step)
-        
 
+
+After you have successfully ran your tests, each test step will create its own documentation (and corresponding screenshot if you are using Selenium WebDriver). These new files will be placed inlivingdocs/content/features. Once you have generated these files, we can build our static Hugo site with the following commands:
+     $ cd livingdocs
+     $ hugo
+
+You will now have a static living docs site in the livingdocs/public directory.
 
 
 Development
